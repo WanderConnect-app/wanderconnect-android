@@ -15,7 +15,10 @@
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
-            
+            <Label
+                Text="Not happy, Jan!"
+                FontSize="Large"
+                FontFamily="RobotoRegular" />
 
         </VerticalStackLayout>
     </ScrollView>
