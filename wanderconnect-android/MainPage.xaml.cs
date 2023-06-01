@@ -1,4 +1,6 @@
-﻿using wanderconnect_android.DataServices;
+﻿using CommunityToolkit.Maui.Views;
+using wanderconnect_android.DataServices;
+using wanderconnect_android.Pages.Popups;
 
 namespace wanderconnect_android;
 
@@ -18,6 +20,19 @@ public partial class MainPage : ContentPage
 	{
 		base.OnAppearing();
 	}
+
+    void BtnLogin_Clicked(System.Object sender, System.EventArgs e)
+    {
+    }
+
+    void RegisterAccountPopUp_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
+    {
+        //await DisplayAlert(
+        //	title: string.Empty,
+        //	message: "Register account tapped",
+        //	cancel: "OK");
+        this.ShowPopup(new RegisterPopupPage());
+    }
 }
 
 

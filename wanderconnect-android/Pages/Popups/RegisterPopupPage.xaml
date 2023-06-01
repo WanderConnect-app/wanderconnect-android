@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+           x:Class="wanderconnect_android.Pages.Popups.RegisterPopupPage"
+           CanBeDismissedByTappingOutsideOfPopup="True"
+           Color="Transparent">
+
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="CenterAndExpand"
+        BackgroundColor="Transparent">
+
+        <!--<ScrollView
+        HorizontalOptions="Center"
+        VerticalOptions="CenterAndExpand"
+        BackgroundColor="#80000000">-->
+
+        <Border
+            WidthRequest="300"
+            HeightRequest="400"
+            BackgroundColor="White"
+            HorizontalOptions="Center">
+
+            <Border.StrokeShape>
+                <RoundRectangle
+                    CornerRadius="40,40,40,40" />
+            </Border.StrokeShape>
+
+            <VerticalStackLayout
+                VerticalOptions="CenterAndExpand"
+                Spacing="3">
+
+                <Label
+                    Text="Register Account"
+                    TextColor="#101010"
+                    FontSize="Large"
+                    FontFamily="RobotoRegular"
+                    HorizontalOptions="Center"
+                    Padding="0,0,0,20" />
+
+                <Entry
+                    x:Name="Ent_Email"
+                    TextColor="#101010"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="250"
+                    Placeholder="Email" />
+
+                <Entry
+                    x:Name="Ent_Password"
+                    TextColor="#101010"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="250"
+                    IsPassword="True"
+                    Placeholder="Password" />
+
+                <Picker
+                    x:Name="Pkr_Country"
+                    Title="Select Country"
+                    WidthRequest="250" />
+
+                <Picker
+                    x:Name="Pkr_RegisterType"
+                    Title="Registration Type"
+                    WidthRequest="250" />
+
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+
+                    <CheckBox
+                        x:Name="Chk_AcceptTerms" />
+
+                    <Label
+                        Text="I accept "
+                        FontSize="Small"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Text="Terms &amp; Conditions"
+                        TextColor="#27bed7"
+                        FontSize="Small"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </HorizontalStackLayout>
+
+                <Button
+                    x:Name="Btn_Register"
+                    Text="Register"
+                    HeightRequest="50"
+                    WidthRequest="250"
+                    FontSize="Medium"
+                    BackgroundColor="#27bed7"
+                    Clicked="Btn_Register_ClickedAsync" />
+            </VerticalStackLayout>
+
+        </Border>
+
+    <!--</ScrollView>-->
+    </VerticalStackLayout>
+
+    
+</mct:Popup>
