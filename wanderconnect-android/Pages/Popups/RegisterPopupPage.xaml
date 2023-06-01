@@ -47,6 +47,13 @@
                     WidthRequest="250"
                     Placeholder="Email" />
 
+                <!--<Label
+                    x:Name="Lbl_EmailError"
+                    TextColor="Red"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Center"
+                    Text="{Binding EmailErrorText}" />-->
+
                 <Entry
                     x:Name="Ent_Password"
                     TextColor="#101010"

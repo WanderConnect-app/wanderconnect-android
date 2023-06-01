@@ -6,7 +6,10 @@ namespace wanderconnect_android;
 
 public partial class MainPage : ContentPage
 {
-    private readonly IRestDataService _dataService;
+    public readonly IRestDataService _dataService;
+
+    public Label _lblEmailError;
+    
 
     public MainPage(IRestDataService dataService)
 	{
