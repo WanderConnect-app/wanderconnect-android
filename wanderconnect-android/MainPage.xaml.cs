@@ -1,24 +1,22 @@
-﻿namespace wanderconnect_android;
+﻿using wanderconnect_android.DataServices;
+
+namespace wanderconnect_android;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    private readonly IRestDataService _dataService;
 
-	public MainPage()
+    public MainPage(IRestDataService dataService)
 	{
 		InitializeComponent();
+
+		_dataService = dataService;
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	// OnAppearing() does all the lifting when the page loads in the background, for example, getting the current location
+	protected async override void OnAppearing()
 	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		base.OnAppearing();
 	}
 }
 

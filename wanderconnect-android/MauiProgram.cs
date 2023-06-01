@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using wanderconnect_android.DataServices;
 
 namespace wanderconnect_android;
 
@@ -18,6 +19,10 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
+		// dependancy injection
+		builder.Services.AddSingleton<IRestDataService, RestDataService>();
+		builder.Services.AddSingleton<MainPage>();
 
 		return builder.Build();
 	}
