@@ -74,7 +74,13 @@
                 FontSize="Small"
                 TextColor="#0892b1"
                 HorizontalOptions="Center"
-                Padding="0,10,0,10" />
+                Padding="0,10,0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        x:Name="TapForgotPassword"
+                        Tapped="TapForgotPassword_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <Label
                 Text="Don't have an account?"

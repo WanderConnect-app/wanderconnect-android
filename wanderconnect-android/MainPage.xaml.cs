@@ -24,8 +24,43 @@ public partial class MainPage : ContentPage
 		base.OnAppearing();
 	}
 
-    void BtnLogin_Clicked(System.Object sender, System.EventArgs e)
+    async void BtnLogin_Clicked(System.Object sender, System.EventArgs e)
     {
+        // set the accesstoken, username, registeras values and returns true if successful
+        var isLogin = await _dataService.LoginUser(
+                                emailAddress: EntEmail.Text.ToString().ToLower(),
+                                password: EntPassword.Text.ToString().ToLower());
+
+        switch(isLogin)
+        {
+            case 0:
+                await DisplayAlert(
+                    title: "Login Successful",
+                    message: "Login works!",
+                    cancel: "OK");
+                return;
+
+            case 1:
+                await DisplayAlert(
+                    title: "Login Error",
+                    message: "No Internet",
+                    cancel: "OK");
+                return;
+
+            case 2:
+                await DisplayAlert(
+                    title: "Login Error",
+                message: "Failed Login",
+                cancel: "OK");
+                return;
+
+            case 3:
+                await DisplayAlert(
+                    title: "Login Error",
+                    message: "Other error",
+                    cancel: "OK");
+                return;
+        }
     }
 
     void RegisterAccountPopUp_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
@@ -35,6 +70,11 @@ public partial class MainPage : ContentPage
         //	message: "Register account tapped",
         //	cancel: "OK");
         this.ShowPopup(new RegisterPopupPage());
+    }
+
+    void TapForgotPassword_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
+    {
+        this.ShowPopup(new ForgotPasswordPopupPage());
     }
 }
 
