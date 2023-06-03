@@ -51,19 +51,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Models\" />
-	  <None Remove="Models\Location\" />
-	  <None Remove="Models\User\" />
-	  <None Remove="DataServices\" />
-	  <None Remove="Pages\" />
-	  <None Remove="Pages\Popups\" />
-	</ItemGroup>
-	<ItemGroup>
 	  <Folder Include="Models\" />
 	  <Folder Include="Models\Location\" />
 	  <Folder Include="Models\User\" />
 	  <Folder Include="DataServices\" />
 	  <Folder Include="Pages\" />
 	  <Folder Include="Pages\Popups\" />
+	  <Folder Include="Pages\Tabs\" />
 	</ItemGroup>
 </Project>
