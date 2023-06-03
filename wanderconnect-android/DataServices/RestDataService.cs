@@ -17,7 +17,7 @@ namespace wanderconnect_android.DataServices
         public RestDataService()
         {
             _httpClient = new HttpClient();
-            _baseAddress = "https://e6f5-101-179-196-59.ngrok-free.app";
+            _baseAddress = "https://4e47-101-179-196-59.ngrok-free.app";
             _url = $"{_baseAddress}/api";
 
             _jsonSerializerOptions = new JsonSerializerOptions
