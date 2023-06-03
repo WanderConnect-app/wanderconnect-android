@@ -3,10 +3,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="wanderconnect_android.Pages.Tabs.HomePage"
              Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <Grid Margin="20" RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout
+                Grid.Row="0"
+                Spacing="5">
+
+                <Label
+                    x:Name="Lbl_Username"
+                    FontSize="Large"
+                    FontFamily="RobotoRegular" />
+                <Label
+                    FontSize="Medium"
+                    FontFamily="RobotoRegular"
+                    Text="Find the best places to explore" />
+            </VerticalStackLayout>
+
+            <Frame
+                Grid.Row="1"
+                Padding="15">
+                <HorizontalStackLayout
+                    Spacing="20">
+                    <Image
+                        Source="search_icon"
+                        Aspect="AspectFit"
+                        HeightRequest="25"
+                        WidthRequest="25" />
+                    <Label
+                        Text="Search..."
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Frame>
+
+            <VerticalStackLayout
+                Grid.Row="2"
+                Spacing="20">
+                <Label
+                    Text="Categories"
+                    FontSize="Large"
+                    FontFamily="RobotoRegular" />
+                <CollectionView
+                    x:Name="Cv_Experiences"
+                    HeightRequest="50"
+                    SelectionMode="Single"
+                    SelectionChanged="Cv_Experiences_SelectionChanged">
+                </CollectionView>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                Grid.Row="3"
+                Spacing="20">
+                <Label
+                    Text="Top Picks"
+                    FontSize="Large"
+                    FontFamily="RobotoRegular" />
+                <CollectionView
+                    x:Name="Cv_TopPicks"
+                    HeightRequest="350">
+                </CollectionView>
+            </VerticalStackLayout>
+        </Grid>
+
+    </ScrollView>
 </ContentPage>
