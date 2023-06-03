@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="wanderconnect_android.Pages.Tabs.SettingsPage"
+             Title="SettingsPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Settings"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large"
+            FontFamily="RobotoRegular"
+            Margin="20" />
+
+        <VerticalStackLayout
+            Margin="20,40,20,40"
+            Spacing="20">
+
+            <!-- About -->
+            <HorizontalStackLayout
+                Spacing="20">
+                <Image
+                    Source="about_icon"
+                    HeightRequest="30"
+                    WidthRequest="30" />
+                <Label
+                    Text="About"
+                    VerticalOptions="Center"
+                    FontSize="Medium"
+                    FontFamily="RobotoRegular" />
+            </HorizontalStackLayout>
+
+            <!-- Privacy & Security -->
+            <HorizontalStackLayout
+                Spacing="20">
+                <Image
+                    Source="privacy_icon"
+                    HeightRequest="30"
+                    WidthRequest="30" />
+                <Label
+                    Text="Privacy &amp; Security"
+                    VerticalOptions="Center"
+                    FontSize="Medium"
+                    FontFamily="RobotoRegular" />
+            </HorizontalStackLayout>
+
+            <!-- Help and Support -->
+            <HorizontalStackLayout
+                Spacing="20">
+                <Image
+                    Source="faq_icon"
+                    HeightRequest="30"
+                    WidthRequest="30" />
+                <Label
+                    Text="Help and Support"
+                    VerticalOptions="Center"
+                    FontSize="Medium"
+                    FontFamily="RobotoRegular" />
+            </HorizontalStackLayout>
+
+            <!-- Logout -->
+            <HorizontalStackLayout
+                Spacing="20">
+                <Image
+                    Source="logout_icon"
+                    HeightRequest="30"
+                    WidthRequest="30" />
+                <Label
+                    Text="Logout"
+                    VerticalOptions="Center"
+                    FontSize="Medium"
+                    FontFamily="RobotoRegular" />
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                        x:Name="TapLogout"
+                        Tapped="TapLogout_Tapped" />
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
