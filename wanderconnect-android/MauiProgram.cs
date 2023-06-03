@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using wanderconnect_android.DataServices;
+using wanderconnect_android.Pages;
 using wanderconnect_android.Pages.Popups;
 
 namespace wanderconnect_android;
@@ -26,8 +27,11 @@ public static class MauiProgram
 
 		// dependancy injection
 		builder.Services.AddSingleton<IRestDataService, RestDataService>();
+
+		// add main use pages
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddTransient<RegisterPopupPage>();
+		builder.Services.AddSingleton<CustomTabbedPage>();
 
 		return builder.Build();
 	}
