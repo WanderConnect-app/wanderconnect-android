@@ -2,12 +2,12 @@
 name: CI-Build-Android
 
 on:
-  push:
-    branches: [ main ]
-    paths-ignore:
-      - '**/*.md'
-      - '**/*.gitignore'
-      - '**/*.gitattributes'
+  # push:
+  #   branches: [ main ]
+  #   paths-ignore:
+  #     - '**/*.md'
+  #     - '**/*.gitignore'
+  #     - '**/*.gitattributes'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
