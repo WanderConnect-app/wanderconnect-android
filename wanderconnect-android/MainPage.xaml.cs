@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui.Views;
 using wanderconnect_android.DataServices;
+using wanderconnect_android.Pages;
 using wanderconnect_android.Pages.Popups;
 
 namespace wanderconnect_android;
@@ -7,22 +8,27 @@ namespace wanderconnect_android;
 public partial class MainPage : ContentPage
 {
     public readonly IRestDataService _dataService;
-
     public Label _lblEmailError;
-    
 
     public MainPage(IRestDataService dataService)
 	{
 		InitializeComponent();
 
 		_dataService = dataService;
-	}
 
-	// OnAppearing() does all the lifting when the page loads in the background, for example, getting the current location
-	protected async override void OnAppearing()
-	{
-		base.OnAppearing();
-	}
+        var accessToken = Preferences.Get("accesstoken", string.Empty);
+        if (!string.IsNullOrEmpty(accessToken))
+        {
+            Application.Current.MainPage = new CustomTabbedPage();
+            Navigation.PopToRootAsync();
+        }
+    }
+
+    // OnAppearing() does all the lifting when the page loads in the background, for example, getting the current location
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
 
     async void BtnLogin_Clicked(System.Object sender, System.EventArgs e)
     {
@@ -34,11 +40,15 @@ public partial class MainPage : ContentPage
         switch(isLogin)
         {
             case 0:
-                await DisplayAlert(
-                    title: "Login Successful",
-                    message: "Login works!",
-                    cancel: "OK");
-                return;
+                //await DisplayAlert(
+                //    title: "Login Successful",
+                //    message: "Login works!",
+                //    cancel: "OK");
+                //return;
+
+                Application.Current.MainPage = new CustomTabbedPage();
+                await Navigation.PopToRootAsync();
+                break;
 
             case 1:
                 await DisplayAlert(
@@ -77,5 +87,4 @@ public partial class MainPage : ContentPage
         this.ShowPopup(new ForgotPasswordPopupPage());
     }
 }
-
 
