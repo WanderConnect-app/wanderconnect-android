@@ -15,8 +15,6 @@ public partial class CustomMainPage : ContentPage
     {
         InitializeComponent();
 
-        
-
         var accessToken = Preferences.Get("accesstoken", string.Empty);
         if (!string.IsNullOrEmpty(accessToken))
         {
@@ -30,8 +28,6 @@ public partial class CustomMainPage : ContentPage
     {
         base.OnAppearing();
     }
-
-    
 
     void RegisterAccountPopUp_Tapped(System.Object sender, Microsoft.Maui.Controls.TappedEventArgs e)
     {
