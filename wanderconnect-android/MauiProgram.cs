@@ -8,32 +8,29 @@ namespace wanderconnect_android;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.UseMauiCommunityToolkit()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-				fonts.AddFont("Roboto-Regular.ttf", "RobotoRegular");
-			});
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                fonts.AddFont("Roboto-Regular.ttf", "RobotoRegular");
+            });
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-		// dependancy injection
-		builder.Services.AddSingleton<IRestDataService, RestDataService>();
+        // Dependency injection
+        builder.Services.AddSingleton<IRestDataService, RestDataService>();
+        builder.Services.AddTransient<CustomMainPage>();
+        builder.Services.AddTransient<RegisterPopupPage>();
+        builder.Services.AddSingleton<CustomTabbedPage>();
 
-		// add main use pages
-		builder.Services.AddSingleton<MainPage>();
-		builder.Services.AddTransient<RegisterPopupPage>();
-		builder.Services.AddSingleton<CustomTabbedPage>();
-
-		return builder.Build();
-	}
+        return builder.Build();
+    }
 }
-

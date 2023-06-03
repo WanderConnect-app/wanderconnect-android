@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="wanderconnect_android.Pages.CustomMainPage"
+             Title="CustomMainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Margin="20,0,20,0"
+            VerticalOptions="Center">
+
+            <!--<Label
+                x:Name="TitleText"
+                FontFamily="RobotoRegular"
+                FontSize="Title"
+                Text="Wander Connect"
+                TextColor="#e23667"
+                HorizontalOptions="Center" />-->
+
+            <Image
+                Source="logo.png"
+                SemanticProperties.Description="Wander Connect logo"
+                HeightRequest="200"
+                WidthRequest="200"
+                HorizontalOptions="Center" />
+
+            <ActivityIndicator
+                x:Name="AcI_Login"
+                Color="#e23667"
+                IsVisible="false" />
+
+            <Entry
+                x:Name="EntEmail"
+                Placeholder="Email"
+                Margin="0,10,0,10" />
+
+            <Entry
+                x:Name="EntPassword"
+                Placeholder="Password"
+                IsPassword="True"
+                Margin="0,10,0,10" />
+
+            <Button
+                x:Name="BtnLogin"
+                Text="Login"
+                HeightRequest="50"
+                FontSize="Medium"
+                BackgroundColor="#27bed7"
+                Margin="0,10,0,20"
+                Clicked="BtnLogin_Clicked" />
+
+            <Line
+                X1="0"
+                Y1="0"
+                X2="250"
+                Y2="0"
+                Stroke="#e23667"
+                HorizontalOptions="Center" />
+
+            <Label
+                x:Name="LblForgotPassword"
+                Text="Forgot your password?"
+                FontFamily="RobotoRegular"
+                FontSize="Small"
+                TextColor="#0892b1"
+                HorizontalOptions="Center"
+                Padding="0,10,0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        x:Name="TapForgotPassword"
+                        Tapped="TapForgotPassword_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                Text="Don't have an account?"
+                FontFamily="RobotoRegular"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Padding="0,2,0,0" />
+
+            <Label
+                x:Name="LblRegister"
+                Text="Register Account"
+                FontFamily="RobotoRegular"
+                FontSize="Small"
+                TextColor="#e23667"
+                HorizontalOptions="Center"
+                Padding="0,2,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        x:Name="TapRegister"
+                        Tapped="RegisterAccountPopUp_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>
