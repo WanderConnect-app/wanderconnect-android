@@ -44,7 +44,7 @@ namespace wanderconnect_android.Pages.Popups
 
         }
 
-        async void Btn_Register_ClickedAsync(object sender, System.EventArgs e)
+        void Btn_Register_ClickedAsync(object sender, System.EventArgs e)
         {
             if (Ent_Email.Text != null
                 && Ent_Email.Text != null
