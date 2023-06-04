@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:wanderconnect_android.Views"
+             xmlns:services="clr-namespace:wanderconnect_android.Services"
              x:Class="wanderconnect_android.Pages.Tabs.HomePage"
              Title="HomePage">
 
@@ -39,6 +41,8 @@
                         WidthRequest="25" />
                     <Label
                         Text="Search..."
+                        FontSize="Medium"
+                        FontFamily="RobotoRegular"
                         VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </Frame>
@@ -50,12 +54,53 @@
                     Text="Categories"
                     FontSize="Large"
                     FontFamily="RobotoRegular" />
+
                 <CollectionView
                     x:Name="Cv_Experiences"
-                    HeightRequest="50"
+                    ItemsLayout="HorizontalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Padding="10"
+                                Margin="5"
+                                BackgroundColor="LightGray">
+                                <Label
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    FontSize="Medium"
+                                    FontFamily="RobotoRegular"
+                                    Text="{Binding Name}" />
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+                <!--<CollectionView
+                    x:Name="Cv_Experiences"
+                    HeightRequest="100"
                     SelectionMode="Single"
                     SelectionChanged="Cv_Experiences_SelectionChanged">
-                </CollectionView>
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout
+                            ItemSpacing="20"
+                            Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame>
+                                <HorizontalStackLayout
+                                    Spacing="5">
+                                    <Label
+                                        VerticalOptions="Center"
+                                        FontSize="Small"
+                                        FontFamily="RobotoRegular"
+                                        Text="{Binding Name}"/>
+                                </HorizontalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>-->
             </VerticalStackLayout>
 
             <VerticalStackLayout

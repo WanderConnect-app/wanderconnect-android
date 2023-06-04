@@ -5,6 +5,7 @@
             xmlns:local="clr-namespace:wanderconnect_android.Pages.Tabs"
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.IsSwipePagingEnabled="False"
             SelectedTabColor="#27bed7"
             UnselectedTabColor="#78909c"
             Title="CustomTabbedPage">

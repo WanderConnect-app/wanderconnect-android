@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
+using wanderconnect_android.Models.Location;
 using wanderconnect_android.Models.User;
 using wanderconnect_android.Pages;
 
@@ -10,7 +11,7 @@ namespace wanderconnect_android.Services
 	public class ApiService
 	{
         private static HttpClient _httpClient = new HttpClient();
-        private static string _baseAddress = "https://4e47-101-179-196-59.ngrok-free.app";
+        private static string _baseAddress = "https://wanderconnectapp01.azurewebsites.net";
         private static string _url = $"{_baseAddress}/api";
         private static JsonSerializerOptions _jsonSerializerOptions = new JsonSerializerOptions
         {
@@ -20,8 +21,6 @@ namespace wanderconnect_android.Services
 
         public async void Logout()
         {
-            
-
             Application.Current.MainPage = new CustomTabbedPage();
         }
 
@@ -74,6 +73,13 @@ namespace wanderconnect_android.Services
                 Debug.WriteLine($"Exception handled: {ex.Message}");
                 return 3;
             }
+        }
+
+        public static async Task<List<Category>> GetCategoryAsync()
+        {
+            var response = await ApiService._httpClient.GetStringAsync(ApiService._url + "/propertycategory");
+            var result = JsonSerializer.Deserialize<List<Category>>(response);
+            return result;
         }
 	}
 }

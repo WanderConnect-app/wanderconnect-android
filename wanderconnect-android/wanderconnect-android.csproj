@@ -60,8 +60,10 @@
 	  <Folder Include="Pages\Popups\" />
 	  <Folder Include="Pages\Tabs\" />
 	  <Folder Include="Services\" />
+	  <Folder Include="Views\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="Services\" />
+	  <None Remove="Views\" />
 	</ItemGroup>
 </Project>
