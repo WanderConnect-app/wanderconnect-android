@@ -19,8 +19,10 @@ public partial class MainPage : ContentPage
         var accessToken = Preferences.Get("accesstoken", string.Empty);
         if (!string.IsNullOrEmpty(accessToken))
         {
-            Application.Current.MainPage = new CustomTabbedPage();
-            Navigation.PopToRootAsync();
+            //Application.Current.MainPage = new CustomTabbedPage();
+            //Navigation.PopToRootAsync();
+
+            Shell.Current.GoToAsync("//customtabbedpage");
         }
     }
 
@@ -39,17 +41,6 @@ public partial class MainPage : ContentPage
 
         switch(isLogin)
         {
-            case 0:
-                //await DisplayAlert(
-                //    title: "Login Successful",
-                //    message: "Login works!",
-                //    cancel: "OK");
-                //return;
-
-                Application.Current.MainPage = new CustomTabbedPage();
-                await Navigation.PopToRootAsync();
-                break;
-
             case 1:
                 await DisplayAlert(
                     title: "Login Error",
@@ -70,6 +61,11 @@ public partial class MainPage : ContentPage
                     message: "Other error",
                     cancel: "OK");
                 return;
+        }
+
+        if (isLogin == 0)
+        {
+            await Shell.Current.GoToAsync(nameof(CustomTabbedPage));
         }
     }
 
