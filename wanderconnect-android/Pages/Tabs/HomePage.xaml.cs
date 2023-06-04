@@ -10,6 +10,9 @@ public partial class HomePage : ContentPage
 	private CancellationTokenSource _cancelTokenSource;
 	private bool _isCheckingLocation;
 
+    private string _latitude = string.Empty;
+    private string _longitude = string.Empty;
+
 	public HomePage()
 	{
 		InitializeComponent();
@@ -26,7 +29,7 @@ public partial class HomePage : ContentPage
     {
         base.OnAppearing();
 
-        // geolocation
+        // geolocation <- get the current location of the user
         await GetCurrentLocation();
     }
 
@@ -56,9 +59,18 @@ public partial class HomePage : ContentPage
             Location location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
 
             if (location != null)
+            {
                 Debug.WriteLine($"---> Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+
+                // set geolocation data
+                _latitude = location.Latitude.ToString();
+                _longitude = location.Longitude.ToString();
+            }
             else
+            {
                 Debug.WriteLine("---> No geo location");
+            }
+                
         }
         // Catch one of the following exceptions:
         //   FeatureNotSupportedException

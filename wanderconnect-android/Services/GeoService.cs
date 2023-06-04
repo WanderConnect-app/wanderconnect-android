@@ -10,10 +10,10 @@ namespace wanderconnect_android.Services
 {
 	public class ApiService
 	{
-        public static HttpClient _httpClient = new HttpClient();
-        public static string _baseAddress = "https://wanderconnectapp01.azurewebsites.net";
-        public static string _url = $"{_baseAddress}/api";
-        public static JsonSerializerOptions _jsonSerializerOptions = new JsonSerializerOptions
+        private static HttpClient _httpClient = new HttpClient();
+        private static string _baseAddress = "https://wanderconnectapp01.azurewebsites.net";
+        private static string _url = $"{_baseAddress}/api";
+        private static JsonSerializerOptions _jsonSerializerOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented = true
