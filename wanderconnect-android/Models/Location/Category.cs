@@ -16,6 +16,9 @@ namespace wanderconnect_android.Models.Location
 
 		[JsonPropertyName("hasPhoto")]
 		public bool HasPhoto { get; set; }
+
+		[JsonPropertyName("lookup")]
+		public string? Lookup { get; set; }
 	}
 }
 

@@ -8,8 +8,8 @@ using wanderconnect_android.Pages;
 
 namespace wanderconnect_android.Services
 {
-	public class ApiService
-	{
+    public class ApiService
+    {
         public static HttpClient _httpClient = new HttpClient();
         public static string _baseAddress = "https://wanderconnectapp01.azurewebsites.net";
         public static string _url = $"{_baseAddress}/api";
@@ -26,7 +26,7 @@ namespace wanderconnect_android.Services
 
 
         public static async Task<int> LoginUser(string emailAddress, string password)
-		{
+        {
             if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
             {
                 Debug.WriteLine("---> No internet access...");
@@ -77,10 +77,26 @@ namespace wanderconnect_android.Services
 
         public static async Task<List<Category>> GetCategoryAsync()
         {
-            var response = await ApiService._httpClient.GetStringAsync(ApiService._url + "/propertycategory");
+            var response = await ApiService._httpClient.GetStringAsync(ApiService._url + "/PropertyCategory");
             var result = JsonSerializer.Deserialize<List<Category>>(response);
             return result;
         }
+
+        public static async Task<List<TopPlacesByGps>> GetTopPlacesAsync(string latitude, string longitude, int radius)
+        {
+            Debug.WriteLine(ApiService._url + $"/GooglePlaceRequest/TopRated/{latitude}/{longitude}/{radius}");
+            var response = await ApiService._httpClient.GetStringAsync(ApiService._url + $"/GooglePlaceRequest/TopRated/{latitude}/{longitude}/{radius}");
+            var result = JsonSerializer.Deserialize<List<TopPlacesByGps>>(response);
+            return result;
+        }
+
+        public static async Task<List<TopRatedDto>> Get10TopRatedPlacesAsync()
+        {
+            var response = await ApiService._httpClient.GetStringAsync(ApiService._url + "/TopRatedDto/Select10");
+            var result = JsonSerializer.Deserialize<List<TopRatedDto>>(response);
+            return result;
+        }
+
 	}
 }
 

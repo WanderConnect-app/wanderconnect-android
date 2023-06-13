@@ -24,7 +24,7 @@
                 <Label
                     FontSize="Medium"
                     FontFamily="RobotoRegular"
-                    Text="Find the best places to explore" />
+                    Text="Find the best places to explore!" />
             </VerticalStackLayout>
 
             <Frame
@@ -110,7 +110,60 @@
                     FontFamily="RobotoRegular" />
                 <CollectionView
                     x:Name="Cv_TopPicks"
-                    HeightRequest="350">
+                    HeightRequest="350"
+                    ItemsLayout="HorizontalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Padding="10"
+                                Margin="5"
+                                BackgroundColor="LightGray"
+                                CornerRadius="25"
+                                MaximumWidthRequest="270">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame
+                                        Grid.Row="0"
+                                        HeightRequest="200"
+                                        WidthRequest="250"
+                                        CornerRadius="25"
+                                        Padding="0">
+                                        <Image
+                                            Source="{Binding imagePath}"
+                                            Aspect="Fill"/>
+                                    </Frame>
+                                    <Label
+                                        Grid.Row="1"
+                                        FontSize="Title"
+                                        FontFamily="RobotoRegular"
+                                        LineBreakMode="WordWrap"
+                                        Text="{Binding name}" />
+                                    <!--<Label
+                                        Grid.Row="2"
+                                        FontSize="Subtitle"
+                                        FontFamily="RobotoRegular"
+                                        LineBreakMode="TailTruncation"
+                                        Text="{Binding TopPickVicinity}" />-->
+                                    <HorizontalStackLayout
+                                        Grid.Row="3">
+                                        <Label
+                                            FontSize="Subtitle"
+                                            FontFamily="RobotoRegular"
+                                            Text="{Binding rating}" />
+                                        <Label
+                                            FontSize="Subtitle"
+                                            FontFamily="RobotoRegular"
+                                            Text=" &#x2B50;" />
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
                 </CollectionView>
             </VerticalStackLayout>
         </Grid>
